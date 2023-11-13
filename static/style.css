@@ -138,6 +138,11 @@ result-page{
 }
 
 
+.signature{
+    display: grid;
+    place-items: center;
+}
+
 
 
 

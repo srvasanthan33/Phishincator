@@ -30,7 +30,9 @@ def predict():
     return render_template('result.html',url=url,model=sel_model,result=prediction_result)
     
 
-    
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
