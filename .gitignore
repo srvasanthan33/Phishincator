@@ -1,0 +1,6 @@
+# Jupyter notebooks
+*.ipynb_checkpoints/
+
+# Python files
+*.pyc
+__pycache__/
