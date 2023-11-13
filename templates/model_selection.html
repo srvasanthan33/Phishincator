@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+<article class ="model-select-form">
+    <div class="model-select-title">
+        <h2>Model Selection</h2>
+    </div>
+    <div class="form-container">
+        <h1>Enter the Required Details</h1>
+        <form class="model-form" action="{{ url_for('predict') }}" method="post">
+            <label for="model">Select Model:</label>
+            <select name="model" id="model">
+                <option value="lr">Logistic Regression</option>
+                <option value="mnb">Multinomial Naive Bayes</option>
+            </select>
+
+            <label for="url">Enter URL for Prediction:</label>
+            <input type="text" name="url" id="url" required>
+
+            <input type="submit" value="Predict">
+        </form>
+    </div>
+</article>
+{% endblock content %}

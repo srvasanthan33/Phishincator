@@ -1,8 +1,13 @@
 {% extends "layout.html" %}
 {% block content %}
 <article class="home-page">
-    <h2>This is <span class="home-page-title">Phish</span>incator </h2>
-    <h4 class="home-page-title-sub"> a ML model which predicts whether the given URL is Phishing link or not</h4>
-    <button class="btn-home-page">Predict</button>
+    <div class="home-page-text">
+        <h2>This is <span class="home-page-title">Phish</span>incator </h2>
+    <h4 class="home-page-title-sub">A Machine Learning model dedicated to predicting whether a given URL is a phishing link or not.</h4>
+    
+    <p>Welcome to Phishincator, your go-to tool for assessing the authenticity of URLs. In an era where online security is paramount, our advanced Machine Learning model leverages a rich dataset and powerful algorithms to analyze URLs and determine their likelihood of being associated with phishing activities.</p>
+    </div>
+    
+    <a class="btn-home-page" href="{{ url_for('predict') }}">Let's Phish Out</a>
 </article>
 {% endblock content %}

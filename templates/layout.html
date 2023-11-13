@@ -11,9 +11,9 @@
     <header>
         <h3 class="nav-title"> <span class="home-page-title">Phish</span>incator</h3>
         <ul class="nav-bar">
-            <li> <a href ='#'> Home </a></li>
-            <li> <a href ='#'> Predict </a></li>
-            <li> <a href = '#'> About me </a></li>
+            <li> <a href ="{{ url_for('home')}}"> Home </a></li>
+            <li> <a href ="{{ url_for('predict')}}"> Predict </a></li>
+            <li> <a href = "{{ url_for('home')}}"> About me </a></li>
         </ul>
     </header>
     <main role="main" class ="container">
