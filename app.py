@@ -1,7 +1,7 @@
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for,jsonify
 # Importing the pkl from models.py module
 from models import LR,MNB,DTC
-import pickle
+import pickle, json
 
 app = Flask(__name__)
 
@@ -39,6 +39,35 @@ def predict():
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+
+#----------------- API data -----------------------------
+
+@app.route('/api/models')
+def scores():
+    with open("accuracy_scores.json","rb") as json_file:
+        data = json.load(json_file)
+        return data
+
+
+@app.route('/api/predict',methods=['GET'])
+def predict_api():
+    selected_model = request.args.get('selected')
+    url = request.args.get('url')
+    if selected_model == 'lr':
+        prediction_result = LR().predict([url])[0]
+    elif selected_model == 'mnb':
+        prediction_result = MNB().predict([url])[0]
+    elif selected_model == 'dtc':
+        prediction_result = DTC().predict([url])[0]
+    # http://127.0.0.1:5000/api/predict?selected=lr&url=https://www.youtube.com/watch?v=L4_jarMnB0c&list=PLu0W_9lII9ahwFDuExCpPFHAK829Wto2O
+    
+    return jsonify({url:prediction_result})
+
+
+    
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
