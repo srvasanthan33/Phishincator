@@ -1,1 +1,1 @@
-{"LogisticRegression": 0.9568581050332211, "MultinomialNB": 0.9731409848002185}
+{"LogisticRegression": 0.9568581050332211, "MultinomialNB": 0.9731409848002185, "DecisionTreeClassifier": 0.9379539455720397}
